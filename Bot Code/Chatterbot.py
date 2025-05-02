@@ -6,7 +6,7 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
 # Add your bot token here
-TOKEN = 'Bot_Token'
+TOKEN = 'BOT_TOKEN'
 
 # Intents
 intents = discord.Intents.default()
@@ -80,7 +80,7 @@ async def fetch_joke():
                     return data['joke']
                 elif data['type'] == 'twopart':
                     return f"{data['setup']} - {data['delivery']}"
-            return "Sorry, I couldn't fetch a joke at the moment."
+            return "Sorry, I failed fetch a joke at the moment."
 
 # Fetch a trivia question from Open Trivia DB
 async def fetch_trivia():
@@ -92,7 +92,7 @@ async def fetch_trivia():
                 question = html.unescape(data['results'][0]['question']) 
                 correct_answer = html.unescape(data['results'][0]['correct_answer'])  
                 return f"Trivia: {question} (!True/!False)", correct_answer
-            return "Sorry, I couldn't fetch trivia at the moment.", None
+            return "Sorry, I failed fetch trivia at the moment.", None
 
 # Run the bot
 bot.run(TOKEN)
